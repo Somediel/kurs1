@@ -22,25 +22,30 @@ void menu(RenderWindow& win)
 	new_game_button.setPosition(1000, 110);
 	load_game_button.setPosition(1000, 160);
 	close_game_button.setPosition(1000, 210);
+	mainFont.loadFromFile("fonts\\arialmt.ttf");
+	start_button_caption.setFont(mainFont);
+	start_button_caption.setString("Load game");
+	start_button_caption.setFillColor(Color(188, 110, 194));
+	start_button_caption.setScale(0.8, 0.8);
+	start_button_caption.setPosition(new_game_button.getPosition());
 
-	while (isMenu)
+	while (win.isOpen())
 	{
 		new_game_button.setColor(Color::White);
 		load_game_button.setColor(Color::White);
 		close_game_button.setColor(Color::White);
 		menuNum = 0;
-		win.clear();
-
 		if (IntRect(1000, 110, 170, 30).contains(Mouse::getPosition(win))) { new_game_button.setColor(Color(204,204,204)), menuNum = 1; }
 		if (IntRect(1000, 160, 170, 30).contains(Mouse::getPosition(win))) { load_game_button.setColor(Color(204, 204, 204)), menuNum = 2; }
 		if (IntRect(1000, 210, 170, 30).contains(Mouse::getPosition(win))) { close_game_button.setColor(Color(204, 204, 204)), menuNum = 3; }
 
-		mainFont.loadFromFile("fonts\\arialmt.ttf");
-		start_button_caption.setFont(mainFont);
-		start_button_caption.setString("Load game");
-		start_button_caption.setFillColor(Color(188, 110, 194));
-		start_button_caption.setScale(0.8, 0.8);
-		start_button_caption.setPosition(new_game_button.getPosition());
+		sf::Event event;
+		while (win.pollEvent(event))
+		{
+			// "close requested" event: we close the window
+			if (event.type == sf::Event::Closed)
+				win.close();
+		}
 
 
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -48,17 +53,19 @@ void menu(RenderWindow& win)
 			if (menuNum == 1)
 			{
 				isMenu = false;
+				win.clear();
 				win.close();
 
 				RenderWindow window1(VideoMode(1366, 768), "Essence");
 
 				game(window1);
-				
+				break;
 			}
 			//if (menuNum == 2) win.draw;
 			if (menuNum == 3) { win.close(); isMenu = false; };
 		}
 
+		win.clear();
 		win.draw(background_menu);
 		win.draw(new_game_button);
 		win.draw(load_game_button);
@@ -69,28 +76,37 @@ void menu(RenderWindow& win)
 	
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void game(RenderWindow& job)
 {
-	while (true)
+	Texture flat, display;
+
+	flat.loadFromFile("images\\flat.png");
+	display.loadFromFile("images\\display.png");
+	
+
+	Sprite flat_texture(flat), display_texture(display);
+
+	flat_texture.setPosition(0, 0);
+	display_texture.setPosition(0, 0);
+	living_beings girl_1;
+
+	while (job.isOpen())
 	{
-		Texture flat, display, girl_1;
+		sf::Event event;
+		while (job.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				job.close();
 
-		flat.loadFromFile("images\\flat.png");
-		display.loadFromFile("images\\display.png");
-		girl_1.loadFromFile("images\\girl_1.png");
-
-		Sprite flat_texture(flat), display_texture(display), girl_11(girl_1);
-
-		flat_texture.setPosition(0, 0);
-		display_texture.setPosition(0, 0);
-		girl_11.setPosition(700, 300);
+		}
 
 		job.clear();
 		job.draw(flat_texture);
 		job.draw(display_texture);
-		job.draw(girl_11);
+		girl_1.Moving(job);
 		job.display();
+
 	}
 }

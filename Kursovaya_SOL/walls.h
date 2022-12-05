@@ -3,7 +3,9 @@
 
 class walls
 {
+public:
+	sf::RectangleShape shape;
 
-
+	sf::Event including;
 };
 

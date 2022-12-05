@@ -1,10 +1,13 @@
 #pragma once
 #include "object.h"
+#include <SFML/Graphics.hpp>
+using namespace sf;
 
 class living_beings : public object
 {
 public:
 
+    int left = 0, right = 0, up = 0, down = 0;
     living_beings();
     std::string name; 
     bool gender; 
@@ -34,16 +37,6 @@ public:
     int GetPlayful();
 
 
-    /*
-    Image boy_proba;
-    boy_proba.loadFromFile("images\\Boy_Proba.png");
-
-    Texture boy_texture;
-    boy_texture.loadFromImage(boy_proba);
-
-    Sprite boy_sprite;
-    boy_sprite.setTexture(boy_texture);
-    boy_sprite.setPosition(50,25);
-    */
+    void Moving(RenderWindow& window);
 };
 

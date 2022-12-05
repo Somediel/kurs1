@@ -13,6 +13,7 @@ class bed : public interior
 {
 public:
 	int sleep;
+
 };
 
 class computer : public interior
