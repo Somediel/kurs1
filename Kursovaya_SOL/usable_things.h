@@ -1,5 +1,8 @@
 #pragma once
-class usable_things
+#include "object.h"
+
+class usable_things : public object
 {
+
 };
 

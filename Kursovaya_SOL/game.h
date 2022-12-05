@@ -4,3 +4,4 @@ using namespace sf;
 
 void menu(RenderWindow& win);
 
+void game(RenderWindow& job);

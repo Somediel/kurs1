@@ -1,5 +1,8 @@
 #pragma once
-class events
+#include "object.h"
+
+class events:public object
 {
+	
 };
 

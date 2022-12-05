@@ -136,18 +136,22 @@
     <ClInclude Include="events.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="interior.h" />
+    <ClInclude Include="items_interior.h" />
     <ClInclude Include="living_beings.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="usable_things.h" />
+    <ClInclude Include="walls.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="events.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="interior.cpp" />
+    <ClCompile Include="items_interior.cpp" />
     <ClCompile Include="living_beings.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="usable_things.cpp" />
+    <ClCompile Include="walls.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
