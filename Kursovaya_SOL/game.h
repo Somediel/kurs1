@@ -1,7 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "walls.h"
 #include "living_beings.h"
+#include "interior.h"
 
 using namespace sf;
 

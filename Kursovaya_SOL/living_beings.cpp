@@ -3,7 +3,7 @@
 
 living_beings::living_beings()
 {
-	//std::cin >> name;
+	// name;
 	//std::cin >> gender;//переписать через выбор пола на кнопочку
 
 	this->view.loadFromFile("images\\girl_1.png");
@@ -11,6 +11,8 @@ living_beings::living_beings()
 	this->x = 700;
 	this->y = 300;
 	this->sprite.setPosition(x, y);
+
+
 }
 
 void living_beings::SetRelationshipStatusBar(int scale_rs)
@@ -74,94 +76,97 @@ int living_beings::GetPlayful()
 }
 
 
-void living_beings::Moving(RenderWindow& window)
+void living_beings::Moving(RenderWindow& window, Sprite flat, Sprite display)
 {
-	if (Keyboard::isKeyPressed(Keyboard::Left))
+	if ((Keyboard::isKeyPressed(Keyboard::Left) || (Keyboard::isKeyPressed(Keyboard::A))))
 	{
+		// x -= 0.5
 		right = 0, up = 0, down = 0;
 		IntRect bound_figure(700, 300, 55, 133);
-		this->sprite.move(-0.05, 0);
-		this->x -= 0.05;
+		this->sprite.move(-1, 0);
+		this->x -= 1;
 		//this->sprite.setTextureRect(bound_figure);
-		switch (left % 3200)
+		switch (left % 320)
 		{
 		case 0:
 			this->view.loadFromFile("images\\wbl1.png");
 			break;
-		case 800:
+		case 80:
 			this->view.loadFromFile("images\\sbl.png");
 			break;
-		case 1600:
+		case 160:
 			this->view.loadFromFile("images\\wbl2.png");
 			break;
-		case 2400:
+		case 240:
 			this->view.loadFromFile("images\\sbl.png");
 			break;
 		}
 		left++;
 	}
-	if (Keyboard::isKeyPressed(Keyboard::Right))
+	if((Keyboard::isKeyPressed(Keyboard::Right) || (Keyboard::isKeyPressed(Keyboard::D))))
 	{
+		// x += 0.5
 		left = 0, up = 0, down = 0;
-		this->sprite.move(0.05, 0);
-		this->x += 0.05;
-		switch (right % 3200)
+		this->sprite.move(1, 0);
+		this->x += 1;
+		switch (right % 320)
 		{
 		case 0:
 			this->view.loadFromFile("images\\wbr1.png");
 			break;
-		case 800:
+		case 80:
 			this->view.loadFromFile("images\\sbr.png");
 			break;
-		case 1600:
+		case 160:
 			this->view.loadFromFile("images\\wbr2.png");
 			break;
-		case 2400:
+		case 240:
 			this->view.loadFromFile("images\\sbr.png");
 			break;
 		}
 		right++;
 
 	}
-	if (Keyboard::isKeyPressed(Keyboard::Up))
+	if ((Keyboard::isKeyPressed(Keyboard::Up) || (Keyboard::isKeyPressed(Keyboard::W))))
 	{
-		left = 0, right = 0, down = 0;
-		this->sprite.move(0, -0.05);
-		this->y += 0.05;
-		switch (up % 3200)
-		{
-		case 0:
-			this->view.loadFromFile("images\\zw1.png");
-			break;
-		case 800:
-			this->view.loadFromFile("images\\zs.png");
-			break;
-		case 1600:
-			this->view.loadFromFile("images\\zw2.png");
-			break;
-		case 2400:
-			this->view.loadFromFile("images\\zs.png");
-			break;
-		}
-		up++;
+			// y -= 0.5
+			this->sprite.move(0, -1);
+			this->y -= 1;
+			switch (up % 320)
+			{
+			case 0:
+				this->view.loadFromFile("images\\zw1.png");
+				break;
+			case 80:
+				this->view.loadFromFile("images\\zs.png");
+				break;
+			case 160:
+				this->view.loadFromFile("images\\zw2.png");
+				break;
+			case 240:
+				this->view.loadFromFile("images\\zs.png");
+				break;
+			}
+			up++;
 	}
-	if (Keyboard::isKeyPressed(Keyboard::Down))
+	if ((Keyboard::isKeyPressed(Keyboard::Down) || (Keyboard::isKeyPressed(Keyboard::S))))
 	{
+		// y += 0.5
 		left = 0, right = 0, up = 0;
-		this->sprite.move(0, 0.05);
-		this->y -= 0.05;
-		switch (down % 3200)
+		this->sprite.move(0, 1);
+		this->y += 1;
+		switch (down % 320)
 		{
 		case 0:
 			this->view.loadFromFile("images\\fs1.png");
 			break;
-		case 800:
+		case 80:
 			this->view.loadFromFile("images\\fs.png");
 			break;
-		case 1600:
+		case 160:
 			this->view.loadFromFile("images\\fs2.png");
 			break;
-		case 2400:
+		case 240:
 			this->view.loadFromFile("images\\fs.png");
 			break;
 		}

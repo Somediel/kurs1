@@ -8,7 +8,7 @@ public:
 
 	object();
 
-protected:
+public:
 
 	sf::Texture view;
 	void SetView(sf::Texture texture);
@@ -16,7 +16,7 @@ protected:
 	sf::Sprite sprite;
 	void SetSprite(sf::Sprite spr);
 	sf::Sprite GetSprite();
-
+public:
 	int x, y;
 	void SetX(int valueX);
 	int GetX();

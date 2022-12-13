@@ -12,6 +12,11 @@ public:
     std::string name; 
     bool gender; 
 
+    void message()
+    {
+        //"Назовите своего персонажа";
+    };
+
     int relationship;
     void SetRelationshipStatusBar(int scale_rs);
     int GetRelationshipStatusBar();
@@ -37,6 +42,6 @@ public:
     int GetPlayful();
 
 
-    void Moving(RenderWindow& window);
+    void Moving(RenderWindow& window, Sprite flat, Sprite display);
 };
 
