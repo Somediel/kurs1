@@ -9,37 +9,34 @@ public:
 
     int left = 0, right = 0, up = 0, down = 0;
     living_beings();
-    std::string name; 
-    bool gender; 
+    /*std::string name; 
+    bool gender; */
 
     void message()
     {
         //"Назовите своего персонажа";
     };
 
-    int relationship;
-    void SetRelationshipStatusBar(int scale_rs);
-    int GetRelationshipStatusBar();
     
-    int fullness;
-    void SetFullness(int full);
-    int GetFullness();
+    float fullness;
+    void SetFullness(float full);
+    float GetFullness();
 
-    int energy;
-    void SetEnergy(int energy_sleep);
-    int GetEnergy();
+    float energy;
+    void SetEnergy(float energy_sleep);
+    float GetEnergy();
 
-    int need;
-    void SetNeed(int needness);
-    int GetNeed();
+    float need;
+    void SetNeed(float needness);
+    float GetNeed();
 
-    int hygiene;
-    void SetHygiene(int hyg);
-    int GetHygiene();
+    float hygiene;
+    void SetHygiene(float hyg);
+    float GetHygiene();
 
-    int playful;
-    void SetPlayful(int playfullness);
-    int GetPlayful();
+    float playful;
+    void SetPlayful(float playfullness);
+    float GetPlayful();
 
 
     void Moving(RenderWindow& window, Sprite flat, Sprite display);

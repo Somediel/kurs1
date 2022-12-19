@@ -3,6 +3,7 @@
 #include "walls.h"
 #include "living_beings.h"
 #include "interior.h"
+#include "items_interior.h"
 
 using namespace sf;
 

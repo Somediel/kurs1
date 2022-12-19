@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="usable_things.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="object.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -42,9 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="usable_things.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="object.cpp">

@@ -11,66 +11,59 @@ living_beings::living_beings()
 	this->x = 700;
 	this->y = 300;
 	this->sprite.setPosition(x, y);
-
-
+	this->energy = 100000;
+	this->hygiene = 100000;
+	this->playful = 100000;
+	this->fullness = 100000;
+	this->need = 100000;
 }
 
-void living_beings::SetRelationshipStatusBar(int scale_rs)
-{
-	this -> relationship = scale_rs;
-}
-
-int living_beings::GetRelationshipStatusBar()
-{
-	return this -> relationship;
-}
-
-void living_beings::SetFullness(int full)
+void living_beings::SetFullness(float full)
 {
 	this->fullness = full;
 }
 
-int living_beings::GetFullness()
+float living_beings::GetFullness()
 {
 	return this->fullness;
 }
 
-void living_beings::SetEnergy(int energy_sleep)
+void living_beings::SetEnergy(float energy_sleep)
 {
 	this->energy = energy_sleep;
 }
 
-int living_beings::GetEnergy()
+float living_beings::GetEnergy()
 {
 	return this->energy;
 }
 
-void living_beings::SetNeed(int needness)
+void living_beings::SetNeed(float needness)
 {
 	this->need = needness;
 }
 
-int living_beings::GetNeed()
+float living_beings::GetNeed()
 {
 	return this->need;
 }
 
-void living_beings::SetHygiene(int hyg)
+void living_beings::SetHygiene(float hyg)
 {
 	this->hygiene = hyg;
 }
 
-int living_beings::GetHygiene()
+float living_beings::GetHygiene()
 {
 	return this->hygiene;
 }
 
-void living_beings::SetPlayful(int playfullness)
+void living_beings::SetPlayful(float playfullness)
 {
 	this->playful = playfullness;
 }
 
-int living_beings::GetPlayful()
+float living_beings::GetPlayful()
 {
 	return this->playful;
 }
@@ -82,10 +75,8 @@ void living_beings::Moving(RenderWindow& window, Sprite flat, Sprite display)
 	{
 		// x -= 0.5
 		right = 0, up = 0, down = 0;
-		IntRect bound_figure(700, 300, 55, 133);
 		this->sprite.move(-1, 0);
 		this->x -= 1;
-		//this->sprite.setTextureRect(bound_figure);
 		switch (left % 320)
 		{
 		case 0:
